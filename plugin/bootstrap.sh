@@ -157,7 +157,8 @@ else
   "$PY313" -m venv "$VENV"
 fi
 "${VENV}/bin/pip" install --quiet --upgrade pip setuptools wheel
-"${VENV}/bin/pip" install --quiet "mcp<2" fastapi uvicorn httpx pypdf pytest python-dotenv nbformat
+"${VENV}/bin/pip" install --quiet "mcp<2" fastapi uvicorn httpx pypdf pytest python-dotenv nbformat \
+  "pymongo>=4.9,<4.14"   # sidecar reads gn-mongo (MongoDB 4.0; pymongo 4.14 dropped 4.0)
 echo "  installing alphagenome SDK (editable)"
 "${VENV}/bin/pip" install --quiet -e "${WORKSPACE}/alphagenome"
 echo "  installing sidecar + dev extras (editable)"
