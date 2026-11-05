@@ -1,6 +1,4 @@
-# hackathon-evidence
-
-How this was built. Nothing here is needed to run the plugin.
+# hackathon
 
 The work ran as seven workstreams (W1–W7), driven by Muse Code against the
 specs and skills recorded here. Each workstream had its own acceptance test and
