@@ -7,6 +7,7 @@ b. An **Ask Muse** co-pilot inside the cBioPortal patient view. Muse Wonder answ
 questions about cancer study data: citation-ranked PubMed evidence, OncoTree→UBERON tissue mapping, and a
 ready-to-run AlphaGenome Colab notebook built for the variant on screen.
 
+_Query Pubmed takes some time due to rate limit on NCBI_
 
 PR raised on Genome Nexus: https://github.com/DixitPatel/genome-nexus/pull/3
 
