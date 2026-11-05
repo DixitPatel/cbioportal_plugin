@@ -1,0 +1,95 @@
+{
+  "name": "cbioportal-muse",
+  "version": "1.0.0",
+  "description": "Ask Muse co-pilot for the cBioPortal patient view: Muse Wonder chat over patient context, AlphaGenome variant scoring, PubMed evidence sections, and a one-click AlphaGenome Colab notebook.",
+  "entrypoints": {
+    "install_skills": "install_skills.sh",
+    "setup": "bootstrap.sh",
+    "start": "start_all.sh",
+    "verify": "verify.sh",
+    "tests": "run_tests.sh",
+    "set_meta_key": "set_meta_key.sh"
+  },
+  "skills_dir": ".agents/skills",
+  "skills": [
+    "setup-agent",
+    "demo-recovery"
+  ],
+  "requires": {
+    "META_API_KEY": "Supplied by the user. Prompted by set_meta_key.sh, bootstrap.sh or the setup agent; stored in agentic-setup/.env only.",
+    "ALPHA_GENOME_API_KEY": "Provided in judges.env."
+  },
+  "models": {
+    "primary": "muse-wonder-1.0",
+    "cheap_substeps": "muse-spark-1.3",
+    "reasoning_effort": "high"
+  },
+  "services": {
+    "gn-mongo": 27017,
+    "alphagenome-sidecar": 8000,
+    "genome-nexus-backend": 38080,
+    "genome-nexus-frontend": 3088,
+    "cbioportal-frontend": 3000
+  },
+  "pins": {
+    "alphagenome": "0.10.0",
+    "node": "22.18.0",
+    "pnpm": "10.33.0",
+    "jdk": 11
+  },
+  "license_note": "Research use only. Not for clinical or diagnostic decisions.",
+  "agent_entry": {
+    "skill": "setup-agent",
+    "context_document": "docs/BUILD_CONTEXT.md",
+    "note": "The setup agent reads docs/BUILD_CONTEXT.md before running anything."
+  },
+  "ships": {
+    "contracts/oncotree_to_uberon.json": "OncoTree to UBERON map. In no repository; the sidecar reads it via ONCOTREE_MAP_PATH.",
+    "prebuilt/web-4a86895-SNAPSHOT.war": "Pre-built Genome Nexus Spring Boot WAR (commit 4a86895 on w3-enricher). Contains final AlphaGenome enricher, 16-worker pool, remote GCS REF checks, and score_level field; eliminates 15-25m build."
+  },
+  "tests_gate_install": false,
+  "repositories_manifest": "repos.tsv",
+  "repositories": {
+    "alphagenome": {
+      "remote": "https://github.com/google-deepmind/alphagenome.git",
+      "branch": "main",
+      "required": true,
+      "note": "unmodified upstream SDK"
+    },
+    "alphagenome-sidecar": {
+      "remote": "https://github.com/DixitPatel/alphagenome_sidecar.git",
+      "branch": "w6-muse-copilot",
+      "required": true
+    },
+    "cbioportal-frontend": {
+      "remote": "https://github.com/DixitPatel/cbioportal-frontend.git",
+      "branch": "w6-muse-copilot",
+      "required": true
+    },
+    "genome-nexus": {
+      "remote": "https://github.com/DixitPatel/genome-nexus.git",
+      "branch": "w3-enricher",
+      "required": true
+    },
+    "genome-nexus-frontend": {
+      "remote": "https://github.com/DixitPatel/genome-nexus-frontend.git",
+      "branch": "w5-variant-page",
+      "required": true
+    },
+    "genome-nexus-annotation-pipeline": {
+      "remote": "https://github.com/genome-nexus/genome-nexus-annotation-pipeline.git",
+      "branch": "master",
+      "required": false,
+      "note": "not used by the demo; --with-pipeline"
+    }
+  },
+  "branch_policy": {
+    "no_fallback": "Never clone main, master or a feat/* branch as a substitute. They lack the work and fail silently.",
+    "stale_pr_branches": {
+      "cbioportal-frontend": "feat/alphagenome-variant-annotation (21 commits behind)",
+      "genome-nexus": "feat/alphagenome-variant-scoring (10 commits behind)",
+      "genome-nexus-frontend": "feat/alphagenome-variant-view (3 commits behind)"
+    }
+  },
+  "env_template": "judges.env"
+}

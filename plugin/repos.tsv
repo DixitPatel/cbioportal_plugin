@@ -1,0 +1,28 @@
+# Authoritative repository manifest. bootstrap.sh reads only this file.
+# Columns: name <TAB> remote URL <TAB> branch <TAB> required(yes|no)
+#
+# NONE of the work is on main or master. Every branch below is exact and
+# case-sensitive. If a clone fails, the branch is not published yet — stop and
+# report it. Substituting main or master produces a stack that starts cleanly
+# and is missing the entire feature.
+#
+# Do NOT use the forks' feat/* branches. They are squashed single commits from
+# 2026-11-02, taken off master for upstream pull requests, and they lack 10-21
+# commits of later work each:
+#   cbioportal-frontend    feat/alphagenome-variant-annotation   (21 behind)
+#   genome-nexus           feat/alphagenome-variant-scoring      (10 behind)
+#   genome-nexus-frontend  feat/alphagenome-variant-view         (3 behind)
+#
+# HEAD as surveyed 2026-11-04. Informational: bootstrap verifies the branch
+# name, not the commit, so later pushes to the same branch are fine.
+#   alphagenome-sidecar    c78568e
+#   cbioportal-frontend    49f11a0e
+#   genome-nexus           4a86895
+#   genome-nexus-frontend  cfd48a0
+#
+alphagenome	https://github.com/google-deepmind/alphagenome.git	main	yes
+alphagenome-sidecar	https://github.com/DixitPatel/alphagenome_sidecar.git	w6-muse-copilot	yes
+cbioportal-frontend	https://github.com/DixitPatel/cbioportal-frontend.git	w6-muse-copilot	yes
+genome-nexus	https://github.com/DixitPatel/genome-nexus.git	w3-enricher	yes
+genome-nexus-frontend	https://github.com/DixitPatel/genome-nexus-frontend.git	w5-variant-page	yes
+genome-nexus-annotation-pipeline	https://github.com/genome-nexus/genome-nexus-annotation-pipeline.git	master	no

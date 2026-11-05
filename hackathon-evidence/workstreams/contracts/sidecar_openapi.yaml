@@ -1,0 +1,106 @@
+openapi: 3.0.3
+info:
+  title: AlphaGenome Variant Scoring & Literature Sidecar API
+  version: 0.1.0
+  description: >
+    Scores GRCh38-normalized variants via Google DeepMind AlphaGenome (`score_variant` + `tidy_scores`),
+    filters to the canonical gene sent by Genome Nexus, computes the per-gene merged splicing score,
+    and optionally curates variant literature with Meta Muse Spark 1.3.
+servers:
+  - url: http://localhost:8000
+paths:
+  /health:
+    get:
+      summary: Service health check
+      operationId: getHealth
+      responses:
+        "200":
+          description: Sidecar is healthy
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [status, service]
+                properties:
+                  status:
+                    type: string
+                    example: ok
+                  service:
+                    type: string
+                    example: alphagenome-sidecar
+  /score:
+    post:
+      summary: Score a single normalized GRCh38 variant for a canonical gene
+      operationId: scoreVariant
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ScoreVariantRequest"
+      responses:
+        "200":
+          description: Gene-filtered AlphaGenome scores and merged splicing score
+          content:
+            application/json:
+              schema:
+                $ref: "./alpha_genome_schema.json"
+        "422":
+          description: Invalid chromosome, position, allele, or interval parameters
+        "429":
+          description: Upstream AlphaGenome API rate limit exceeded
+        "503":
+          description: Upstream AlphaGenome API unavailable
+components:
+  schemas:
+    ScoreVariantRequest:
+      type: object
+      required:
+        - variant
+        - chromosome
+        - position
+        - reference_allele
+        - alternate_allele
+        - canonical_gene
+      properties:
+        variant:
+          type: string
+          description: Original Genome Nexus variant ID echoed at the root of the response
+          example: "7:g.140453136A>T"
+        chromosome:
+          type: string
+          pattern: "^chr([1-9]|1[0-9]|2[0-2]|X|Y)$"
+          example: "chr7"
+        position:
+          type: integer
+          minimum: 1
+          example: 140753336
+        reference_allele:
+          type: string
+          pattern: "^[ACGT]+$"
+          example: "A"
+        alternate_allele:
+          type: string
+          pattern: "^[ACGT]+$"
+          example: "T"
+        canonical_gene_id:
+          type: string
+          example: "ENSG00000157764"
+        canonical_gene:
+          type: string
+          example: "BRAF"
+        include_literature:
+          type: boolean
+          default: false
+        rsid:
+          type: string
+          nullable: true
+          example: "rs113488022"
+        hgvsc:
+          type: string
+          nullable: true
+          example: "ENST00000288602.6:c.1799T>A"
+        hgvsp:
+          type: string
+          nullable: true
+          example: "p.Val600Glu"

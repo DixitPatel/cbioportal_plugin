@@ -1,0 +1,160 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://genomenexus.org/schemas/alpha_genome_annotation.json",
+  "title": "AlphaGenomeAnnotationPayload",
+  "description": "Schema for VariantAnnotation.alpha_genome and MongoDB alphagenome.annotation documents.",
+  "type": "object",
+  "required": [
+    "variant",
+    "hg38_variant",
+    "scored_interval",
+    "model_version",
+    "canonical_gene_id",
+    "canonical_gene",
+    "merged_splicing_score",
+    "scores"
+  ],
+  "properties": {
+    "variant": {
+      "type": "string",
+      "description": "Original Genome Nexus variant query ID echoed as MongoDB _id (e.g. 7:g.140453136A>T)."
+    },
+    "hg38_variant": {
+      "type": "string",
+      "pattern": "^chr([1-9]|1[0-9]|2[0-2]|X|Y):[0-9]+:[ACGT]+>[ACGT]+$",
+      "description": "Normalized GRCh38 VCF-style coordinate string (chr:pos:REF>ALT)."
+    },
+    "scored_interval": {
+      "type": "string",
+      "description": "1 Mb (1,048,576 bp) GRCh38 scoring window used for score_variant."
+    },
+    "model_version": {
+      "type": "string",
+      "description": "AlphaGenome model version identifier."
+    },
+    "canonical_gene_id": {
+      "type": "string",
+      "description": "Ensembl canonical gene ID (version stripped, e.g. ENSG00000157764)."
+    },
+    "canonical_gene": {
+      "type": "string",
+      "description": "Canonical gene HUGO symbol (e.g. BRAF)."
+    },
+    "merged_splicing_score": {
+      "type": ["number", "null"],
+      "description": "Per-gene merged splicing score: max(SPLICE_SITES) + max(SPLICE_SITE_USAGE) + max(SPLICE_JUNCTIONS)/5."
+    },
+    "scores": {
+      "type": "array",
+      "description": "Per-gene scorer x track rows (scorer x junction x track for SPLICE_JUNCTIONS) from tidy_scores.",
+      "items": {
+        "type": "object",
+        "required": [
+          "output_type",
+          "variant_scorer",
+          "gene_id",
+          "gene_name",
+          "track_name",
+          "raw_score",
+          "quantile_score"
+        ],
+        "properties": {
+          "output_type": {
+            "type": "string",
+            "enum": ["RNA_SEQ", "SPLICE_SITES", "SPLICE_SITE_USAGE", "SPLICE_JUNCTIONS"]
+          },
+          "variant_scorer": {
+            "type": "string"
+          },
+          "gene_id": {
+            "type": "string"
+          },
+          "gene_name": {
+            "type": "string"
+          },
+          "junction_start": {
+            "type": ["integer", "null"]
+          },
+          "junction_end": {
+            "type": ["integer", "null"]
+          },
+          "track_name": {
+            "type": "string"
+          },
+          "ontology_curie": {
+            "type": ["string", "null"],
+            "description": "Tissue/cell ontology CURIE (e.g. UBERON:0001264); null for tissue-agnostic SPLICE_SITES."
+          },
+          "biosample_name": {
+            "type": ["string", "null"]
+          },
+          "raw_score": {
+            "type": "number"
+          },
+          "quantile_score": {
+            "type": ["number", "null"]
+          }
+        }
+      }
+    },
+    "literature": {
+      "type": ["object", "null"],
+      "description": "Optional Muse Spark 1.3 curated literature synthesis with verbatim-verified quotes.",
+      "required": ["papers", "excluded", "source_query"],
+      "properties": {
+        "source_query": {
+          "type": "string"
+        },
+        "papers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "pmid",
+              "url",
+              "year",
+              "evidence_level",
+              "evidence_type",
+              "relation_to_prediction",
+              "claim",
+              "quote",
+              "quote_verified"
+            ],
+            "properties": {
+              "pmid": { "type": "string" },
+              "url": { "type": "string" },
+              "year": { "type": ["integer", "string", "null"] },
+              "evidence_level": {
+                "type": "string",
+                "enum": ["same_variant", "same_mechanism_same_gene", "gene_only", "unrelated"]
+              },
+              "evidence_type": {
+                "type": "string",
+                "enum": ["experimental", "computational", "clinical_observation", "review"]
+              },
+              "relation_to_prediction": {
+                "type": "string",
+                "enum": ["supports", "conflicts", "not_addressed"]
+              },
+              "cancer_context": { "type": ["string", "null"] },
+              "claim": { "type": "string" },
+              "quote": { "type": "string", "maxLength": 300 },
+              "quote_verified": { "type": "boolean", "const": true }
+            }
+          }
+        },
+        "excluded": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["pmid", "reason"],
+            "properties": {
+              "pmid": { "type": "string" },
+              "reason": { "type": "string" }
+            }
+          }
+        }
+      }
+    }
+  }
+}

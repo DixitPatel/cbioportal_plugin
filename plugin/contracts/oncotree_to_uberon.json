@@ -1,0 +1,239 @@
+{
+  "version": "2026.10.1",
+  "description": "Curated OncoTree cancer-type to AlphaGenome UBERON ontology_curie mapping table (Mondo disease_has_location + NCIt level-1 organ crosswalk).",
+  "mappings": {
+    "PAAD": {
+      "oncotree_name": "Pancreatic Adenocarcinoma",
+      "default_curie": "UBERON:0001264",
+      "default_label": "pancreas",
+      "alternates": [
+        "UBERON:0001150"
+      ],
+      "availability": {
+        "RNA_SEQ": true,
+        "SPLICE_SITE_USAGE": true,
+        "SPLICE_JUNCTIONS": true
+      }
+    },
+    "PANCREAS": {
+      "oncotree_name": "Pancreas",
+      "default_curie": "UBERON:0001264",
+      "default_label": "pancreas",
+      "alternates": [
+        "UBERON:0001150"
+      ],
+      "availability": {
+        "RNA_SEQ": true,
+        "SPLICE_SITE_USAGE": true,
+        "SPLICE_JUNCTIONS": true
+      }
+    },
+    "PANET": {
+      "oncotree_name": "Pancreatic Neuroendocrine Tumor",
+      "default_curie": "UBERON:0000016",
+      "default_label": "endocrine pancreas",
+      "alternates": [
+        "UBERON:0001264",
+        "CL:0000169"
+      ],
+      "availability": {
+        "RNA_SEQ": true,
+        "SPLICE_SITE_USAGE": true,
+        "SPLICE_JUNCTIONS": true
+      }
+    },
+    "LUAD": {
+      "oncotree_name": "Lung Adenocarcinoma",
+      "default_curie": "UBERON:0002048",
+      "default_label": "lung",
+      "alternates": [],
+      "availability": {
+        "RNA_SEQ": true,
+        "SPLICE_SITE_USAGE": true,
+        "SPLICE_JUNCTIONS": true
+      }
+    },
+    "LUSC": {
+      "oncotree_name": "Lung Squamous Cell Carcinoma",
+      "default_curie": "UBERON:0002048",
+      "default_label": "lung",
+      "alternates": [],
+      "availability": {
+        "RNA_SEQ": true,
+        "SPLICE_SITE_USAGE": true,
+        "SPLICE_JUNCTIONS": true
+      }
+    },
+    "BRCA": {
+      "oncotree_name": "Invasive Breast Carcinoma",
+      "default_curie": "UBERON:0000310",
+      "default_label": "breast",
+      "alternates": [
+        "UBERON:0001911"
+      ],
+      "availability": {
+        "RNA_SEQ": true,
+        "SPLICE_SITE_USAGE": true,
+        "SPLICE_JUNCTIONS": true
+      }
+    },
+    "COAD": {
+      "oncotree_name": "Colon Adenocarcinoma",
+      "default_curie": "UBERON:0000317",
+      "default_label": "colonic mucosa",
+      "alternates": [
+        "UBERON:0001157",
+        "UBERON:0001159"
+      ],
+      "availability": {
+        "RNA_SEQ": true,
+        "SPLICE_SITE_USAGE": true,
+        "SPLICE_JUNCTIONS": true
+      }
+    },
+    "READ": {
+      "oncotree_name": "Rectal Adenocarcinoma",
+      "default_curie": "UBERON:0000317",
+      "default_label": "colonic mucosa",
+      "alternates": [
+        "UBERON:0001157",
+        "UBERON:0001159"
+      ],
+      "availability": {
+        "RNA_SEQ": true,
+        "SPLICE_SITE_USAGE": true,
+        "SPLICE_JUNCTIONS": true
+      }
+    },
+    "GBM": {
+      "oncotree_name": "Glioblastoma",
+      "default_curie": "UBERON:0000955",
+      "default_label": "brain",
+      "alternates": [
+        "UBERON:0001870"
+      ],
+      "availability": {
+        "RNA_SEQ": true,
+        "SPLICE_SITE_USAGE": true,
+        "SPLICE_JUNCTIONS": true
+      }
+    },
+    "LGG": {
+      "oncotree_name": "Low-Grade Glioma",
+      "default_curie": "UBERON:0000955",
+      "default_label": "brain",
+      "alternates": [
+        "UBERON:0001870"
+      ],
+      "availability": {
+        "RNA_SEQ": true,
+        "SPLICE_SITE_USAGE": true,
+        "SPLICE_JUNCTIONS": true
+      }
+    },
+    "LIHC": {
+      "oncotree_name": "Hepatocellular Carcinoma",
+      "default_curie": "UBERON:0002107",
+      "default_label": "liver",
+      "alternates": [],
+      "availability": {
+        "RNA_SEQ": true,
+        "SPLICE_SITE_USAGE": true,
+        "SPLICE_JUNCTIONS": true
+      }
+    },
+    "PRAD": {
+      "oncotree_name": "Prostate Adenocarcinoma",
+      "default_curie": "UBERON:0002367",
+      "default_label": "prostate gland",
+      "alternates": [],
+      "availability": {
+        "RNA_SEQ": true,
+        "SPLICE_SITE_USAGE": true,
+        "SPLICE_JUNCTIONS": true
+      }
+    },
+    "KIRC": {
+      "oncotree_name": "Renal Clear Cell Carcinoma",
+      "default_curie": "UBERON:0002113",
+      "default_label": "kidney",
+      "alternates": [
+        "UBERON:0001225"
+      ],
+      "availability": {
+        "RNA_SEQ": true,
+        "SPLICE_SITE_USAGE": true,
+        "SPLICE_JUNCTIONS": true
+      }
+    },
+    "SKCM": {
+      "oncotree_name": "Cutaneous Melanoma",
+      "default_curie": "UBERON:0002097",
+      "default_label": "skin of body",
+      "alternates": [],
+      "availability": {
+        "RNA_SEQ": true,
+        "SPLICE_SITE_USAGE": true,
+        "SPLICE_JUNCTIONS": true
+      }
+    },
+    "STAD": {
+      "oncotree_name": "Stomach Adenocarcinoma",
+      "default_curie": "UBERON:0000945",
+      "default_label": "stomach",
+      "alternates": [],
+      "availability": {
+        "RNA_SEQ": true,
+        "SPLICE_SITE_USAGE": true,
+        "SPLICE_JUNCTIONS": true
+      }
+    },
+    "OV": {
+      "oncotree_name": "Ovarian Serous Cystadenocarcinoma",
+      "default_curie": "UBERON:0000992",
+      "default_label": "ovary",
+      "alternates": [],
+      "availability": {
+        "RNA_SEQ": true,
+        "SPLICE_SITE_USAGE": true,
+        "SPLICE_JUNCTIONS": true
+      }
+    },
+    "BLCA": {
+      "oncotree_name": "Bladder Urothelial Carcinoma",
+      "default_curie": "UBERON:0001255",
+      "default_label": "urinary bladder",
+      "alternates": [],
+      "availability": {
+        "RNA_SEQ": true,
+        "SPLICE_SITE_USAGE": true,
+        "SPLICE_JUNCTIONS": true
+      }
+    },
+    "THCA": {
+      "oncotree_name": "Papillary Thyroid Cancer",
+      "default_curie": "UBERON:0002046",
+      "default_label": "thyroid gland",
+      "alternates": [],
+      "availability": {
+        "RNA_SEQ": true,
+        "SPLICE_SITE_USAGE": true,
+        "SPLICE_JUNCTIONS": true
+      }
+    },
+    "COADREAD": {
+      "oncotree_name": "Colorectal Adenocarcinoma",
+      "default_curie": "UBERON:0000317",
+      "default_label": "colonic mucosa",
+      "alternates": [
+        "UBERON:0001157",
+        "UBERON:0001159"
+      ],
+      "availability": {
+        "RNA_SEQ": true,
+        "SPLICE_SITE_USAGE": true,
+        "SPLICE_JUNCTIONS": true
+      }
+    }
+  }
+}
