@@ -120,3 +120,19 @@ cd cbioportal_plugin/plugin
 ```
 
 Then follow [`plugin/docs/DEMO.md`](plugin/docs/DEMO.md).
+
+
+
+
+
+
+
+## Screenshots
+<img width="3400" height="1209" alt="Screenshot 2026-11-05 at 1 27 19 PM" src="https://github.com/user-attachments/assets/75933357-a006-48f0-a3cd-0e33a1ee6101" />
+<img width="538" height="677" alt="Screenshot 2026-11-05 at 8 28 21 PM" src="https://github.com/user-attachments/assets/4d000f57-fd6d-407c-be6d-ae6605ad04f3" />
+<img width="472" height="590" alt="Screenshot 2026-11-05 at 8 29 04 PM" src="https://github.com/user-attachments/assets/8dfa7992-513b-491a-aa8a-ad6a586e42e7" />
+<img width="499" height="574" alt="Screenshot 2026-11-05 at 8 29 23 PM" src="https://github.com/user-attachments/assets/c8db0a29-5703-47fe-97db-6a68af68556a" />
+<img width="537" height="677" alt="Screenshot 2026-11-05 at 8 29 36 PM" src="https://github.com/user-attachments/assets/488d2aa0-057d-48fa-bd99-904038d6a648" />
+<img width="1166" height="226" alt="Screenshot 2026-11-05 at 8 36 16 PM" src="https://github.com/user-attachments/assets/45ee6c2e-6cff-4139-bbc0-bbca27b59ceb" />
+
+
