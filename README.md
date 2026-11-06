@@ -1,5 +1,4 @@
 # Onco-Muse: Meta Muse for Cancer genomics
-_Built for the Meta hackathon, Nov 2026_
 
 This repository builds:<br> 
 a. AlphaGenome variant-effect scoring pipeline with liftover and other references for genome-nexus annotation pipeline<br>
