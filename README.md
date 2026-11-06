@@ -13,7 +13,7 @@ PR raised on Genome Nexus: https://github.com/DixitPatel/genome-nexus/pull/3
 
 | Folder | For whom |
 |---|---|
-| **[`plugin/`](plugin/)** | Judges and researchers. Everything needed to install and run the stack locally. |
+| **[`plugin/`](plugin/)** | Everything needed to install and run the stack locally. |
 | **[`hackathon-evidence/`](hackathon-evidence/)** |How the work was done: workstream specs, agent configuration, verification reports, command references |
 
 ## Setup
