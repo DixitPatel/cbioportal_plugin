@@ -133,6 +133,8 @@ Querying the model with specific details is left for researchers as it requires 
 <img width="472" height="590" alt="Screenshot 2026-11-05 at 8 29 04 PM" src="https://github.com/user-attachments/assets/8dfa7992-513b-491a-aa8a-ad6a586e42e7" />
 <img width="499" height="574" alt="Screenshot 2026-11-05 at 8 29 23 PM" src="https://github.com/user-attachments/assets/c8db0a29-5703-47fe-97db-6a68af68556a" />
 <img width="537" height="677" alt="Screenshot 2026-11-05 at 8 29 36 PM" src="https://github.com/user-attachments/assets/488d2aa0-057d-48fa-bd99-904038d6a648" />
+
+Experimentation loop with colab (model fetches the context through tool use)
 <img width="1166" height="226" alt="Screenshot 2026-11-05 at 8 36 16 PM" src="https://github.com/user-attachments/assets/45ee6c2e-6cff-4139-bbc0-bbca27b59ceb" />
 
 
