@@ -127,6 +127,7 @@ Then follow [`plugin/docs/DEMO.md`](plugin/docs/DEMO.md).
 
 
 ## Screenshots
+Querying the model with specific details is left for researchers as it requires expert review. These screenshots showcase ability to query and explore 
 <img width="3400" height="1209" alt="Screenshot 2026-11-05 at 1 27 19 PM" src="https://github.com/user-attachments/assets/75933357-a006-48f0-a3cd-0e33a1ee6101" />
 <img width="538" height="677" alt="Screenshot 2026-11-05 at 8 28 21 PM" src="https://github.com/user-attachments/assets/4d000f57-fd6d-407c-be6d-ae6605ad04f3" />
 <img width="472" height="590" alt="Screenshot 2026-11-05 at 8 29 04 PM" src="https://github.com/user-attachments/assets/8dfa7992-513b-491a-aa8a-ad6a586e42e7" />
